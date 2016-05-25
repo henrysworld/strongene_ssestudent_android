@@ -1,0 +1,114 @@
+
+<!-- This is a innerHTML file. Don't add javascript here-->
+<!--
+###1.3 我的作业页面
+- 子导航栏：标签栏（标签名为学科）
+    - 数学（**第一个标签默认为选中状态**）
+    - 物理
+    - 化学
+    - ...（更多上线的学科，若存在）
+- 主窗口：作业清单列表
+    - 作业清单1
+    - 作业清单2
+    - ...（更多作业清单，若存在）
+- 子窗口/边栏：作业提醒信息汇总
+    - 未提交作业数目（若存在）
+    - 未查阅作业批改数目（若存在）
+    -->
+
+<link rel="stylesheet" href="page/wodezuoyepage/wodezuoye.css"/>
+
+<div class="" ng-controller="wodezuoyeController as main">
+    <ons-toolbar>
+        <div class="center" style="font-weight: bold;">作业清单列表</div>
+    </ons-toolbar>
+
+    <div style="text-align: center">
+        <ons-row>
+            <ons-col>部分完成</ons-col>
+            <ons-col>新布置</ons-col>
+            <ons-col>待批改</ons-col>
+            <ons-col>未阅读</ons-col>
+            <ons-col>已阅读</ons-col>
+        </ons-row>
+        <ons-row>
+            <ons-col>{{main.wanchengbufenCount}}</ons-col>
+            <ons-col>{{main.xinzuoyeCount}}</ons-col>
+            <ons-col>{{main.daipigaiCount}}</ons-col>
+            <ons-col>{{main.daiyuedupigaiCount}}</ons-col>
+            <ons-col>{{main.yiyuedupigaiCount}}</ons-col>
+        </ons-row>
+    </div>
+
+    <ons-list>
+        <!-- use main to refer to the main controller -->
+        <div class="navigation-bar">
+            <div class="navigation-bar__center">
+                <!-- segment control -->
+                <div class="button-bar" style="width:80%; margin:8px auto 0;">
+                    <div class="button-bar__item" ng-repeat="i in main.kechengs">
+                        <input type="radio" name="navi-segment-a" ng-model="main.currentTab" ng-value="$index">
+                        <div class="button-bar__button">{{i.name}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <ons-list class="plan-list" ng-hide="main.kechengs[main.currentTab].wanchengbufenCount==0">
+            <ons-list-header>
+                完成部分的作业({{main.kechengs[main.currentTab].wanchengbufenCount}})
+            </ons-list-header>
+            <ons-list-item modifier="chevron" class="plan" ng-repeat="i in main.kechengs[main.currentTab].qingdans"
+                           ng-click="main.onItemClick($index)" ng-if="i.flag==PARTLY_FINISHED_WORK">
+                <div class="plan-duration">{{i.fabutime | date: 'yyyy年M月dd日 HH:mm:ss'}}发布的作业</div>
+            </ons-list-item>
+        </ons-list>
+
+        <ons-list class="plan-list" ng-if="main.kechengs[main.currentTab].xinzuoyeCount!=0">
+            <ons-list-header>
+                新布置的作业({{main.kechengs[main.currentTab].xinzuoyeCount}})
+            </ons-list-header>
+            <ons-list-item modifier="chevron" class="plan" ng-repeat="i in main.kechengs[main.currentTab].qingdans"
+                           ng-click="main.onItemClick($index)" ng-if="i.flag==NEW_WORK">
+                <div class="plan-duration">
+                    {{i.fabutime | date: 'yyyy年M月dd日 HH:mm:ss'}}发布的作业
+                    <i class="fa fa-cloud-download" ng-show="$root.db.timus[i.index].length < $root.db.qingdans[i.index].timus.length"></i>
+                    <i class="fa fa-bug" ng-show="$root.db.timus[i.index].length < $root.db.qingdans[i.index].timus.length && $root.db.pullList.length==0"></i>
+                </div>
+            </ons-list-item>
+        </ons-list>
+
+        <ons-list class="plan-list" ng-if="main.kechengs[main.currentTab].daipigaiCount!=0">
+            <ons-list-header>
+                待批改的作业({{main.kechengs[main.currentTab].daipigaiCount}})
+            </ons-list-header>
+            <ons-list-item modifier="chevron" class="plan" ng-repeat="i in main.kechengs[main.currentTab].qingdans"
+                           ng-click="main.onItemClick($index)" ng-if="i.flag==PENDING_JUDGE_WORK">
+                <div class="plan-duration">
+                    {{i.fabutime | date: 'yyyy年M月dd日 HH:mm:ss'}}发布的作业
+                    <i ng-show="i.postDatijiluDone==false" class="fa fa-cloud-upload"></i>
+                </div>
+            </ons-list-item>
+        </ons-list>
+
+        <ons-list class="plan-list" ng-if="main.kechengs[main.currentTab].daiyuedupigaiCount!=0">
+            <ons-list-header>
+                未阅读批改的作业({{main.kechengs[main.currentTab].daiyuedupigaiCount}})
+            </ons-list-header>
+            <ons-list-item modifier="chevron" class="plan" ng-repeat="i in main.kechengs[main.currentTab].qingdans"
+                           ng-click="main.onItemClick($index)" ng-if="i.flag==NOT_READ_JUDGED_WORK">
+                <div class="plan-duration">{{i.fabutime | date: 'yyyy年M月dd日 HH:mm:ss'}}发布的作业</div>
+            </ons-list-item>
+        </ons-list>
+
+        <ons-list class="plan-list" ng-if="main.kechengs[main.currentTab].yiyuedupigaiCount!=0">
+            <ons-list-header>
+                已阅读批改的作业({{main.kechengs[main.currentTab].yiyuedupigaiCount}})
+            </ons-list-header>
+            <ons-list-item modifier="chevron" class="plan" ng-repeat="i in main.kechengs[main.currentTab].qingdans"
+                           ng-click="main.onItemClick($index)" ng-if="i.flag==ALREADY_READ_JUDGED_WORK">
+                <div class="plan-duration">{{i.fabutime | date: 'yyyy年M月dd日 HH:mm:ss'}}发布的作业</div>
+            </ons-list-item>
+        </ons-list>
+    </ons-list>
+</div>

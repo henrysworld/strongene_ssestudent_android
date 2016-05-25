@@ -1,0 +1,15 @@
+.img-float-mark {
+    float: right;
+    width: 32px;
+    height: 32px;
+    position: relative;
+    z-index: 2;
+    margin: -32px 0 0 0;
+}
+
+.img-floating {
+    position: relative;
+    width:100%;
+    height:100px;
+    z-index: 1;
+}

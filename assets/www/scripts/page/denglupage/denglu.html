@@ -1,0 +1,43 @@
+
+<link rel="stylesheet" href="page/denglupage/login.style.css"/>
+
+
+<div ng-controller="dengluController as main">
+<ons-toolbar>
+    <div class="center">学生端 v{{$root.version}}</div>
+</ons-toolbar>
+
+<form class="login-form">
+
+    <div ng-show="main.isFailed">
+        {{main.failedMessage}}
+    </div>
+
+    <input type="text" ng-model="main.username" class="text-input--underbar" placeholder="用户名" value="">
+    <input type="password" ng-model="main.password" class="text-input--underbar" placeholder="密码" value="">
+    <br><br>
+    <ons-button modifier="large" class="login-button" ng-click="main.submitClicked()">登录</ons-button>
+
+    <div ng-show="$root.debug">
+    <br>
+    <ons-button modifier="quiet" class="login-button"
+                ng-click="myNavigator.pushPage(testpageEntrance, { animation : 'slide' } )">跳过->测试页面
+    </ons-button>
+
+    <ons-button modifier="quiet" class="login-button"
+                ng-click="myNavigator.pushPage(studentClientEntrance, { animation : 'slide' } )">跳过->学生客户端
+    </ons-button>
+
+    <ons-button modifier="quiet" class="login-button"
+                ng-click="myNavigator.pushPage(bluetoothTestEntrance, { animation : 'slide' } )">跳过->蓝牙SDK
+    </ons-button>
+    <ons-button modifier="quiet" class="login-button"
+                ng-click="myNavigator.pushPage(caogaoPage, { animation : 'slide' } )">跳过->草稿页面
+    </ons-button>
+    </div>
+</form>
+<br/><br/>
+<div ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' }"
+     ng-if="flash" ng-bind="flash.message"></div>
+<div ng-view></div>
+</div>

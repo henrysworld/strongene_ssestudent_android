@@ -1,0 +1,27 @@
+
+#xjx_display {
+    width: 100%;
+    height: 300px;
+    min-height: 300px;
+    margin: 10px auto 0;
+    padding: 10px 30px;
+    background-color: rgb(45, 45, 45);
+    color: rgb(0, 255, 0);
+    overflow-y: auto;
+    font-size: 14px;
+    line-height: 14px;
+}
+
+#xjx_input {
+    display: block;
+    float: left;
+    width: 100%;
+    height: 20px;
+    padding: 10px 30px;
+    margin: 10px auto 0;
+    border-radius: 3px;
+    background-color: rgb(13, 13, 13);
+    font: 400 0.542em/1.38 Helvetica;
+    color: rgb(0, 255, 0);
+    font-size: 14px;
+}

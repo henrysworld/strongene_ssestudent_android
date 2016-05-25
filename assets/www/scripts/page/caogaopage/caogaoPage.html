@@ -1,0 +1,14 @@
+<ons-page ng-controller="caogaoPageController as main">
+    <ons-toolbar>
+        <div class="center" style="font-weight: bold;">草稿页面</div>
+    </ons-toolbar>
+    <div class="right">
+        <ons-button ng-click="main.onUsePen()">使用画笔</ons-button>
+        <ons-button ng-click="main.onUseEraser()">使用橡皮擦</ons-button>
+        <ons-button ng-click="main.onClear()">全部清除</ons-button>
+        <!-- <ons-button modifier="material" ng-click="">笔迹粗细</ons-button>
+        <ons-button modifier="material" ng-click="">笔迹颜色</ons-button> -->
+    </div>
+    <div>蓝牙状态：{{main.syncSDKMessage}}</div>
+    <canvas id="caogaoCanvas"></canvas>
+</ons-page>

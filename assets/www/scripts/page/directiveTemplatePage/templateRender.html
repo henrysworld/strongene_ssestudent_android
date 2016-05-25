@@ -1,0 +1,44 @@
+<span ng-repeat="info in timu.rendering.info track by $index">
+    <!-- DO NOT modify the following line!!! Since it change CSS style -->
+    <span ng-if="info[0]==$root.SSETIGAN_TXT" style='white-space:pre-wrap;'>{{info[1]}}</span>
+    <span ng-if="info[0]==$root.SSETIGAN_UDL">
+        <canvas class="underline" width="100" height="50" style="position:relative; top:5px"></canvas>
+    </span>
+    <span ng-if="info[0]==$root.SSETIGAN_SLT">
+        <span style="background-color: #ffffff; color: #000000"
+              uib-popover-template="$root.sseselectPage"
+              popover-is-open="timu.rendering.ctrl[$index].isopen"
+              popover-animation="false"
+              popover-placement="auto bottom-left"
+              popover-title="请选择"
+              ng-click="renderEngine.setPopoverInfo(info[1], timu.rendering.ctrl[$index])"
+              mathjax-bind="timu.rendering.ctrl[$index].idx<0?'请选择':
+                        $root.alphabet[timu.rendering.ctrl[$index].idx]+'. '+info[1][timu.rendering.ctrl[$index].idx]"
+        >
+
+        </span>
+    </span>
+    <span ng-if="info[0]==$root.SSETIGAN_BR">
+        <br>
+    </span>
+    <span ng-if="info[0]==$root.SSETIGAN_TAB">
+        <ons-row ng-repeat="row in info[1] track by $index">
+            <ons-col ng-repeat="col in row track by $index">
+                <span class="LatexRender">{{col}}</span>
+            </ons-col>
+        </ons-row>
+    </span>
+    <span ng-if="info[0]==$root.SSETIGAN_PIC">
+        <img ng-src="{{timu.tiganpic}}" ng-if="timu.tiganpic!=null && timu.tiganpic.length>0" style="padding-left:0; padding-right:0; margin-left:auto; margin-right:auto; display:block">
+    </span>
+    <span ng-if="info[0]==$root.SSETIGAN_ANS">
+        <div>
+            过程：&nbsp
+            <canvas class="guocheng" width="400" height="300" style="padding-left:0; padding-right:0; margin-left:auto; margin-right:auto; display:block"> </canvas>
+        </div>
+        <div ng-if="timu.youdaan">
+            答案：&nbsp
+            <canvas class="daan" width="400" height="50" style="padding-left:0; padding-right:0; margin-left:auto; margin-right:auto; display:block"> </canvas>
+        </div>
+    </span>
+</span>

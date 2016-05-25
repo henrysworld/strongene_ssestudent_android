@@ -1,0 +1,11 @@
+<!-- This is not a page! It is just for popover-->
+
+<link rel="stylesheet" href="page/sseselect/sseselect.css"/>
+<div ng-controller="sseSelectController as main" >
+    <ol class="oList" type="A">
+        <li class="listItem" ng-repeat="content in main.content track by $index"
+            ng-click="main.onClickItem($index)">
+            <div mathjax-bind="content"></div>
+        </li>
+    </ol>
+</div>

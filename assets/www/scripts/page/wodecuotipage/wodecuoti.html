@@ -1,0 +1,73 @@
+<!-- This is a innerHTML file. Don't add javascript here-->
+<!--
+###1.4 我的错题页面
+- 子导航栏：标签栏（学科）
+    - 数学（**第一个标签默认为选中状态**）
+    - 物理
+    - 化学
+    - ...（更多上线的学科，若存在）
+- 主窗口：错题的知识结构树
+    - 第一章 章节名 总题数：p 做对数：q
+        - 查看未掌握错题（x道）
+        - 查看已掌握错题（y道）
+    - 第二章 章节名 总题数：u 做对数：v
+        - 查看未掌握错题（m道）
+        - 查看已掌握错题（n道）
+    - ...（更多章节）
+- 子窗口/边栏：功能单选框
+    - 只显示有未掌握错题的章节（记录/保持学生的选择偏好）
+    -->
+
+<link rel="stylesheet" href="page/wodecuotipage/wodecuoti.css"/>
+
+<ons-toolbar>
+    <div class="center" style="font-weight: bold;">我的错题</div>
+</ons-toolbar>
+
+<div ng-controller="wodecuotiController as main">
+    <ons-list class="">
+        <!-- use main to refer to the main controller -->
+        <div class="navigation-bar">
+            <div class="navigation-bar__center">
+                <!-- segment control -->
+                <div class="button-bar" style="width:80%; margin:8px auto 0;">
+                    <div class="button-bar__item" ng-repeat="kecheng in main.kechengs">
+                        <input type="radio" name="navi-segment-a" ng-model="main.currTab" ng-value="$index">
+                        <div class="button-bar__button">{{kecheng.name}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- <ons-button ng-click="main.onYuedu()">
+            未阅读的错题批改：{{main.cuotiweidu[main.currTab].length}}条（点击阅读）
+        </ons-button> -->
+
+        <!-- <ons-list class="plan-list" ng-repeat="jiaoxuerenwu in main.kechengs[main.currentTab].jiaoxuerenwus">
+            <ons-list-header>
+                {{jiaoxuerenwu.name}}   总题数：{{jiaoxuerenwu.datijilusGroupByTimu.length}}   做对数：
+            </ons-list-header>
+
+        </ons-list> -->
+        <ons-list>
+            <ons-list-header>各章节错题统计 （错误次数 / 总提交数）</ons-list-header>
+            <div>
+                <label class="checkbox" ng-click="main.updateShowUndone()">
+                    <input type="checkbox" ng-model="main.notShowUndone">
+                    <div class="checkbox__checkmark"></div>
+                    只显示有错题的章节
+                </label>
+            </div>
+            <ons-list-item ng-repeat="renwu in main.renwuArray[main.currTab]"
+                           ng-hide="(main.notShowUndone && renwu.isUndone)||(renwu.level!=0&&renwu.isHide)">
+                    <span ng-click="main.onClickZhangjie(renwu.id, $index)">
+                        <span ng-hide="renwu.level!=0||!renwu.isHide">+ &nbsp</span>
+                        <span ng-hide="renwu.level!=0||renwu.isHide">- &nbsp</span>
+                        <span ng-hide="renwu.level==0">&nbsp;&nbsp;&nbsp;</span>
+                        <span>{{renwu.name}} &nbsp;&nbsp;
+                            （{{renwu.tijiaos.cuoti.length}} / {{renwu.tijiaos.length}}）</span>
+                    </span>
+            </ons-list-item>
+        </ons-list>
+    </ons-list>
+</div>

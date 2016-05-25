@@ -1,0 +1,38 @@
+<ons-page ng-controller="streamingController as main">
+    <style>
+        #canvas {
+            background-color: green;
+            margin-top: 10px;
+        }
+    </style>
+    <ons-row>
+        <ons-col>
+            <div>
+                <button modifier="material" ng-click="main.start()">START</button>
+                <button modifier="material" ng-click="main.end()">END</button>
+            </div>
+            <div>
+                <h3>Last notification: </h3>
+                <div>{{main.manager.json}}</div>
+            </div>
+            <div>
+                <div style="font-size:15px">Connection Status: {{main.manager.stateString}}</div>
+                <div style="font-size:15px">Connection Status Previous: {{main.manager.stateStringPrev}}</div>
+                <div style="font-size:15px">X Coordinate: {{main.manager.xCoordinate}}</div>
+                <div style="font-size:15px">Y Coordinate: {{main.manager.yCoordinate}}</div>
+                <div style="font-size:15px">Pressure: {{main.manager.pressure}}</div>
+                <div style="font-size:15px">hasTipSwitchFlag: {{main.manager.hasTipSwitchFlag}}</div>
+                <br>
+                <button modifier="material" ng-click="main.eraseSync()">Erase</button>
+                <button modifier="material" ng-click="main.setSyncMode(1)">Set mode - none</button>
+                <button modifier="material" ng-click="main.setSyncMode(4)">Set mode - capture</button>
+                <button modifier="material" ng-click="main.setSyncMode(5)">Set mode - file</button>
+            </div>
+        </ons-col>
+        <ons-col>
+            <canvas id="canvas" height="574" width="395"></canvas>
+        </ons-col>
+    </ons-row>
+    <!--div>
+    </div-->
+</ons-page>

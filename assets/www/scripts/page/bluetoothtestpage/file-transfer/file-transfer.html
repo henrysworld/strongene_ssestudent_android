@@ -1,0 +1,51 @@
+<ons-page ng-controller="fileTransferController as main">
+    <style>
+        #canvas {
+            background-color: green;
+            margin-top: 10px;
+        }
+    </style>
+    <ons-row>
+        <ons-col>
+            <div>
+                <button modifier="material" ng-click="main.start()">START</button>
+                <button modifier="material" ng-click="main.end()">END</button>
+            </div>
+            <div>
+                <h4>State: {{main.stateString}}</h4>
+                <ons-list-header>
+                    File list
+                </ons-list-header>
+                <ons-list ng-repeat="file in main.fileList track by $index">
+                    <ons-list-item>
+                        <ons-row>
+                            <div>
+                                name: {{ file.name }} | time: {{ file.time }} | size: {{ file.size }}
+                            </div>
+                        </ons-row>
+                        <ons-row>
+                            data: {{ file.data }}
+                        </ons-row>
+                        <ons-row>
+                            <button modifier="material" ng-click="main.changeFolder($index)" ng-hide="file.isFile">change Folder</button>
+                            <button modifier="material" ng-click="main.getFile($index)" ng-show="file.isFile">get File</button>
+                            <button modifier="material" ng-click="main.deleteFile($index)">delete File</button>
+                        </ons-row>
+                    </ons-list-item>
+                </ons-list>
+            </div>
+            <div>
+                <div>
+                    <button modifier="material" ng-click="main.getDirectoryUri()">Get uri</button>
+                    <button modifier="material" ng-click="main.getState()">Get state</button>
+                    <p>message: {{ main.message }}</p>
+                    <p>Connection Status: {{main.stateString}}</p>
+                </div>
+            </div>
+        </ons-col>
+        <ons-col>
+            <canvas id="canvas" height="574" width="395"></canvas>
+        </ons-col>
+    </ons-row>
+</ons-page>
+

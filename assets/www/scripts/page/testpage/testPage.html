@@ -1,0 +1,108 @@
+<!-- This is a innerHTML file. Don't add javascript here-->
+<link rel="stylesheet" href="page/testpage/testPage.css">
+
+<ons-page ng-controller="testpageController">
+    <ons-toolbar>
+        <div class="left">
+            <ons-toolbar-button onclick="menu.toggleMenu()">
+                <ons-icon icon="fa-bars"></ons-icon>
+            </ons-toolbar-button>
+        </div>
+        <div class="center">Test Area</div>
+    </ons-toolbar>
+
+    <ons-row>
+        <ons-col>Text</ons-col>
+        <ons-col>Text</ons-col>
+        <ons-col>Text</ons-col>
+        <ons-col>Text</ons-col>
+        <ons-col>Text</ons-col>
+    </ons-row>
+
+    <div style="text-align: center">
+        <ons-button modifier="light" ng-click="myNavigator.pushPage(getNextPage(testPage), { animation : 'slide' } )"
+                    style="color: red">
+            Push Page
+        </ons-button>
+
+        <div>
+
+            <uib-accordion close-others=true>
+                <uib-accordion-group is-open="status.open">
+                    <uib-accordion-heading>
+                        Click to show
+                    </uib-accordion-heading>
+                    <div class="global-test-text">
+                        I'm hiding.
+                    </div>
+                </uib-accordion-group>
+            </uib-accordion>
+
+            <div ng-controller='dataPickerController'>
+                <pre>Selected date is: <em>{{dt | date:'fullDate' }}</em></pre>
+                <div style="display:inline-block; min-height:290px;">
+                    <uib-datepicker ng-model="dt" min-date="minDate" show-weeks="true" class="well well-sm" custom-class="getDayClass(date, mode)"></uib-datepicker>
+                </div>
+            </div>
+
+            <div id="change_html_test">
+                Empty
+            </div>
+            <h5>Test2: Using angular instead of jQuery, {{ testPage == firstPage }}.</h5>
+            <h5>Test3: You can try out your test code here.</h5>
+
+            <div ng-controller="httpTestController">
+                <h5>Test4: Get http response: {{httpResponseData}}</h5>
+            </div>
+
+            <div ng-controller="bluetoothTestController">
+                <h5>Test5: Bluetooth test response: {{data}}</h5>
+            </div>
+
+            <div>
+            <ons-row>
+                <ons-col>r1c1</ons-col>
+                <ons-col>r1c2</ons-col>
+                <ons-col>r1c3</ons-col>
+                <ons-col>r1c4</ons-col>
+            </ons-row>
+            <ons-row>
+                <ons-col>r2c1</ons-col>
+                <ons-col>r2c2</ons-col>
+                <ons-col>r2c3</ons-col>
+                <ons-col>r2c4</ons-col>
+            </ons-row>
+            </div>
+
+            <div>
+                <img src="{{testimg}}" alt="Origin Picture" width="400" height="200" border="1" />
+            </div>
+            <div ng-controller="clickableFloatingController" ng-click="imgClick()">
+                <img class="img-floating" src="../img/randompic001.png">
+                <img class="img-float-mark" src="../img/test_wrong.png" ng-hide="clicked">
+                <img class="img-float-mark" src="../img/test_right.png" ng-show="clicked">
+                <img class="img-floating" src="../img/randompic001.png">
+                <img class="img-float-mark" src="../img/test_wrong.png" ng-hide="clicked">
+                <img class="img-float-mark" src="../img/test_right.png" ng-show="clicked">
+            </div>
+            <div>
+                <canvas id="RealCanvas" width="200" height="100" style="border:1px solid #000000;"></canvas>
+            </div>
+            <div>
+                <canvas id="OECanvas" width="200" height="100"></canvas>
+                <canvas id="OFCanvas" width="200" height="100"></canvas>
+            </div>
+            <div>
+                <canvas id="UECanvas" width="200" height="100"></canvas>
+                <canvas id="UFCanvas" width="200" height="100"></canvas>
+            </div>
+        </div>
+        <br>
+
+        <div id="latex">
+            When \(a \ne 0\), there are two solutions to \(ax^2 + bx + c = 0\) and they are
+            $$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$
+        </div>
+        <br>
+    </div>
+</ons-page>

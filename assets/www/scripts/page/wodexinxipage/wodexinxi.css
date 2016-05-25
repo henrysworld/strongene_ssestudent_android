@@ -1,0 +1,62 @@
+
+.list-item-container {
+    padding: 8px 12px ;
+}
+
+.sse_title {
+    line-height: 22px;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 4px 0 4px 0;
+}
+
+.sse_desc {
+    line-height: 18px;
+    font-size: 16px;
+}
+
+.sse_sub {
+    line-height: 10px;
+    font-size: 8px;
+    color: gray;
+    margin: 8px 0 0 4px;
+}
+
+.sse_panel {
+    margin: 0 0;
+    border-bottom: 1px solid #ddd;
+    box-shadow: none;
+}
+
+.sse_clear {
+    clear:both;
+}
+
+
+.card {
+    background-color: grey;
+    background-image: url(../../../img/randompic001.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    height: 50px;
+}
+
+.card-toolbar ons-back-button span {
+    color: white;
+}
+
+.card-name {
+    font-weight: 600;
+    font-size: 20px;
+    padding: 5px 0 8px 0;
+    text-align: center;
+}
+
+.card-desc {
+    font-size: 14px;
+    font-weight: 400;
+    opacity: 0.9;
+    text-align: center;
+    line-height: 1.4;
+}

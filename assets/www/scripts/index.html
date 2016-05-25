@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="mobile-web-app-capable" content="yes"/>
+
+    <!-- Security policy -->
+    <!-- This policy allows everything (eg CSS, AJAX, object, frame, media, etc) except that
+    * CSS only from the same origin and inline styles,
+    * scripts only from the same origin and inline styles, and eval() -->
+    <meta http-equiv="Content-Security-Policy"
+          content="img-src 'self' data:; default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'">
+
+    <!-- JS dependencies (order matters!) -->
+    <script src="platformOverrides.js"></script>
+    <script src="../lib/angular/angular.js"></script>
+    <script src="../lib/onsen/js/onsenui.js"></script>
+    <!-- use MathJax render Latex-->
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+                        tex2jax: {inlineMath: [['$','$']]},
+                        skipStartupTypeset: true,
+                        showMathMenu: false,
+                        jax: ["input/TeX","output/PreviewHTML"],
+                        extensions: ["tex2jax.js","MathMenu.js","MathZoom.js", "fast-preview.js", "AssistiveMML.js"],
+                        TeX: {
+                            extensions: ["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"]
+                        },
+                        "fast-preview":{disabled: true}
+                        });
+    </script>
+    <script src="../lib/mathjax/MathJax.js?config=default"></script>
+
+    <!-- CSS dependencies -->
+    <link rel="stylesheet" href="../lib/onsen/css/onsenui.css"/>
+    <link rel="stylesheet" href="../lib/onsen/css/onsen-css-components-customized-dark-theme.css"/>
+    <link rel="stylesheet" href="../lib/ui-bootstrap/css/bootstrap.css"/>
+    <link rel="stylesheet" href="../lib/ui-bootstrap/css/bootstrap-theme.css"/>
+
+    <!-- CSP support mode (required for Windows Universal apps) -->
+    <link rel="stylesheet" href="../lib/angular/angular-csp.css"/>
+
+    <!-- Cordova reference -->
+    <script src="../cordova.js"></script>
+
+    <!-- Style for this project -->
+    <link rel="stylesheet" href="global.css"/>
+</head>
+
+<body>
+
+
+<div ng-controller="globalController as globalControl">
+    <ons-modal var="loading_modal">
+        <ons-icon icon="spinner" spin="true" size = "2x"></ons-icon>
+        <br> {{globalControl.loadingMessage}}
+    </ons-modal>
+
+    <ons-navigator title="Navigator" var="myNavigator">
+
+    </ons-navigator>
+</div>
+
+<script src="../lib/jquery-2.1.4.js"></script>
+<script src="../lib/angular/angular-route.js"></script>
+<script src="../lib/angular/angular-cookies.js"></script>
+<script src="../lib/angular/angular-animate.js"></script>
+<script src="../lib/angular/angular-md5.js"></script>
+
+
+<!-- Third party Library -->
+<script type="text/javascript" src="../lib/jquery-2.1.4.js"></script>
+<script type="text/javascript" src="../lib/greensock/TweenMax.js"></script>
+<script type="text/javascript" src="../lib/greensock/jquery.gsap.js"></script>
+<script type="text/javascript" src="../lib/pdfjs/pdf.js"></script>
+<script type="text/javascript" src="../lib/pdfjs/pdf.worker.js"></script>
+<script type="text/javascript" src="utils/thirdparty.js"></script>
+<script type="text/javascript" src="utils/saveload.js"></script>
+<script type="text/javascript" src="utils/commandline/core.js"></script>
+<script type="text/javascript" src="utils/commandline/input.js"></script>
+<script type="text/javascript" src="utils/commandline/display.js"></script>
+<script type="text/javascript" src="utils/commandline/manager.js"></script>
+<script type="text/javascript" src="utils/commandline/extension.js"></script>
+<script type="text/javascript" src="utils/commandline.js"></script>
+
+<script type="text/javascript" src="../lib/digest.js"></script>
+<script type="text/javascript" src="../lib/angular-local-storage/common.js"></script>
+<script type="text/javascript" src="../lib/angular-local-storage/angular-local-storage.js"></script>
+<script type="text/javascript" src="app-services/authDigest.service.js"></script>
+<script type="text/javascript" src="app-services/syncSdk.service.js"></script>
+<script type="text/javascript" src="app-services/loadingInfo.factory.js"></script>
+<script type="text/javascript" src="app-services/authDigestData.factory.js"></script>
+<script type="text/javascript" src="app-services/checkTongzhis.factory.js"></script>
+<script type="text/javascript" src="app-services/supervisor.factory.js"></script>
+<script type="text/javascript" src="app-services/renderEngine.factory.js"></script>
+<script type="text/javascript" src="app-services/messageStack.service.js"></script>
+
+<script type="text/javascript" src="../lib/ui-bootstrap/js/bootstrap.js"></script>
+<script type="text/javascript" src="../lib/ui-bootstrap/ui-bootstrap-tpls-1.0.0.js"></script>
+
+<!-- Bluetooth -->
+<script src="../lib/sync-sdk/pdfjs/pdf.js"></script>
+<script src="../lib/sync-sdk/pdfjs/compatibility.js"></script>
+<script src="../lib/sync-sdk/sync-sdk/obex-ftp-utils.js"></script>
+<script src="../lib/sync-sdk/sync-sdk/obex-ftp-response.js"></script>
+<script src="../lib/sync-sdk/sync-sdk/obex-ftp-header.js"></script>
+<script src="../lib/sync-sdk/sync-sdk/obex-ftp-request.js"></script>
+<script src="../lib/sync-sdk/sync-sdk/sync-capture-report.js"></script>
+<script src="../lib/sync-sdk/sync-sdk/sync-path.js"></script>
+<script src="../lib/sync-sdk/sync-sdk/sync-filter.js"></script>
+<script src="../lib/sync-sdk/sync-sdk/sync-streaming.js"></script>
+<script src="../lib/sync-sdk/sync-sdk/sync-file-transfer.js"></script>
+
+<!-- Initialize testing modules -->
+<script src="localDBController.js"></script>
+<script src="globalController.js"></script>
+<script src="page/sseselect/sseselect.js"></script>
+<script src="pageRender.js"></script>
+<script src="page/testpage/httpTestController.js"></script>
+<script src="page/testpage/testpageController.js"></script>
+<script src="page/testpage/bluetoothTestController.js"></script>
+<script src="page/testpage/clickableFloatingController.js"></script>
+<script src="page/testpage/dataPickerController.js"></script>
+<script src="page/bluetoothtestpage/file-transfer/fileTransferController.js"></script>
+<script src="page/bluetoothtestpage/streaming/streamingController.js"></script>
+<script src="page/bluetoothtestpage/file-transfer/file-transfer.js"></script>
+<script src="page/bluetoothtestpage/streaming/streaming.js"></script>
+<script src="page/bluetoothtestpage/sample/sampleController.js"></script>
+
+<!-- Student client -->
+<script src="app.js"></script>
+
+<!-- Student client modules-->
+<script src="page/wodetixingpage/wodetixingController.js"></script>
+<script src="page/wodezuoyepage/wodezuoyeController.js"></script>
+<script src="page/wodecuotipage/wodecuotiController.js"></script>
+<script src="page/wodexinxipage/wodexinxiController.js"></script>
+<script src="page/zuozuoyepage/zuozuoyeController.js"></script>
+<script src="page/chakanzuoyepage/chakanzuoyeController.js"></script>
+<script src="page/tuichudengluzhanghaopage/tuichudengluzhanghaoController.js"></script>
+<script src="page/xiugaidenglumimapage/xiugaidenglumimaController.js"></script>
+<script src="page/cuotiliebiaopage/cuotiliebiaoController.js"></script>
+<script src="page/denglupage/dengluController.js"></script>
+<script src="page/zuocuotipage/zuocuotiController.js"></script>
+<script src="page/yueducuotipage/yueducuotiController.js"></script>
+<script src="page/caogaopage/caogaoPageController.js"></script>
+
+<!-- Real user service that uses an api -->
+</body>
+</html>

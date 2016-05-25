@@ -1,0 +1,51 @@
+
+<!-- This is a innerHTML file. Don't add javascript here-->
+<!--
+###1.5 我的信息页面
+- 主窗口
+    - 我的姓名
+    - 我的年级与班级
+    - 我的学号
+    - 我的学校
+    - 老师的评语墙
+- 子窗口/边栏
+    - 修改登录密码按钮
+    - 退出登录账号按钮
+    -->
+
+<link rel="stylesheet" href="page/wodexinxipage/wodexinxi.css"/>
+
+<div class="" ng-controller="wodexinxiController as main">
+    <ons-toolbar>
+        <div class="center" style="font-weight: bold;">我的信息</div>
+        <div class="right">
+            <ons-button modifier="material" ng-click="main.changePassword()">修改登录密码</ons-button>
+            <ons-button modifier="material" ng-click="main.logout()">退出登录账号</ons-button>
+        </div>
+    </ons-toolbar>
+
+    <ons-list>
+        <ons-list-header>
+            个人信息
+        </ons-list-header>
+        <ons-list-item>
+            登录名：{{main.userInfo.user}}
+        </ons-list-item>
+        <ons-list-item>
+            姓名：{{main.userInfo.name}}
+        </ons-list-item>
+        <ons-list-item>
+            班级：{{main.userInfo.banji.name}}
+        </ons-list-item>
+    </ons-list>
+
+    <ons-list>
+        <ons-list-header>
+            软件信息
+        </ons-list-header>
+        <ons-list-item>
+            版本号：{{$root.version}}
+        </ons-list-item>
+        <ons-button modifier="material" ng-click="main.updateApp()">版本更新</ons-button>
+    </ons-list>
+</div>

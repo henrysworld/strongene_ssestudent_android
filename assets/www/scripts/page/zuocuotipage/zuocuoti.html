@@ -1,0 +1,26 @@
+
+<link rel="stylesheet" href="page/zuocuotipage/zuocuoti.css"/>
+
+<ons-page>
+    <div class="" ng-controller="zuocuotiController as main">
+        <ons-toolbar>
+            <div class="left">
+                <ons-button modifier="material" ng-click="backClicked()">返回</ons-button>
+            </div>
+            <div class="center" style="font-weight: bold;"> {{main.syncSDKMessage}}</div>
+
+            <div class="right">
+                <ons-button modifier="material" ng-click="submit()">提交</ons-button>
+            </div>
+        </ons-toolbar>
+
+        <ons-list class="plan-list">
+            <ons-list-item class="plan" ng-repeat="i in main.timus" ngc-done="'scope.render'" id="{{i.timuId}}">
+                {{i.tixingName}}:  <span class="zuocuotiLatexRender" ng-bind-html="i.tigantxt | to_trusted" > </span>
+                <span ng-hide="i.tiganpic==null">
+                    <br><img src={{i.tiganpic}}>
+                </span>
+            </ons-list-item>
+        </ons-list>
+    </div>
+</ons-page>

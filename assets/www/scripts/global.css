@@ -1,0 +1,9 @@
+
+
+.global-test-text {
+    color:red;
+}
+
+body,button, input, select, textarea,h1 ,h2, h3, h4, h5, h6 {
+    font-family: '黑体', Microsoft YaHei, '宋体' , Tahoma, Helvetica, Arial, "\5b8b\4f53", sans-serif;
+}

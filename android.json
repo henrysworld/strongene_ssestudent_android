@@ -1,0 +1,491 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {
+            "res/xml/config.xml": {
+                "parents": {
+                    "/*": [
+                        {
+                            "xml": "<feature name=\"PowerManagement\"><param name=\"android-package\" value=\"org.apache.cordova.powermanagement.PowerManagement\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"MacAddressPlugin\"><param name=\"android-package\" value=\"com.badrit.MacAddress.MacAddressPlugin\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"ActivityManagerPlugin\"><param name=\"android-package\" value=\"com.xjxxjx1017.ActivityManager.ActivityManagerPlugin\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"AlarmManagerPlugin\"><param name=\"android-package\" value=\"com.xjxxjx1017.AlarmManager.AlarmManagerPlugin\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"IntentPlugin\"><param name=\"android-package\" value=\"com.napolitano.cordova.plugin.intent.IntentPlugin\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"File\"><param name=\"android-package\" value=\"org.apache.cordova.file.FileUtils\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"CordovaHttpPlugin\"><param name=\"android-package\" value=\"com.synconset.CordovaHttpPlugin\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"AlarmPlugin\"><param name=\"android-package\" value=\"com.uniclau.alarmplugin.AlarmPlugin\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Applist\"><param name=\"android-package\" value=\"org.jmrezayi2.Applist.Applist\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Device\"><param name=\"android-package\" value=\"org.apache.cordova.device.Device\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Notification\"><param name=\"android-package\" value=\"org.apache.cordova.dialogs.Notification\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Whitelist\"><param name=\"android-package\" value=\"org.apache.cordova.whitelist.WhitelistPlugin\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"SQLitePlugin\"><param name=\"android-package\" value=\"io.liteglue.SQLitePlugin\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"HttpRequest\"><param name=\"android-package\" value=\"plugin.http.request.HttpRequest\" /></feature>",
+                            "count": 1
+                        }
+                    ],
+                    "/widget": [
+                        {
+                            "xml": "<feature name=\"SyncSdkStreaming\"><param name=\"android-package\" value=\"com.megster.cordova.SyncSdkStreaming\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"SyncSdkFileTransfer\"><param name=\"android-package\" value=\"com.megster.cordova.SyncSdkFileTransfer\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"BluetoothSerial\"><param name=\"android-package\" value=\"com.megster.cordova.BluetoothSerial\" /></feature>",
+                            "count": 1
+                        }
+                    ]
+                }
+            },
+            "AndroidManifest.xml": {
+                "parents": {
+                    "/*": [
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.WAKE_LOCK\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.ACCESS_WIFI_STATE\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\" />",
+                            "count": 2
+                        }
+                    ],
+                    "/manifest": [
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.BLUETOOTH\" />",
+                            "count": 2
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.BLUETOOTH_ADMIN\" />",
+                            "count": 2
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.ACCESS_COARSE_LOCATION\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.SYSTEM_ALERT_WINDOW\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.PACKAGE_USAGE_STATS\" tools:ignore=\"ProtectedPermissions\" xmlns:tools=\"http://schemas.android.com/tools\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.WAKE_LOCK\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.DISABLE_KEYGUARD\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.RECEIVE_BOOT_COMPLETED\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.VIBRATE\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.INTERNET\" />",
+                            "count": 1
+                        }
+                    ],
+                    "/manifest/application": [
+                        {
+                            "xml": "<service android:name=\"com.improvelectronics.sync.android.SyncStreamingService\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<service android:name=\"com.improvelectronics.sync.android.SyncFtpService\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<receiver android:name=\"com.uniclau.alarmplugin.AlarmReceiver\" android:process=\":remote\"></receiver>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<receiver android:name=\"com.uniclau.alarmplugin.AlarmBoot\"><intent-filter><action android:name=\"android.intent.action.BOOT_COMPLETED\" /></intent-filter></receiver>",
+                            "count": 1
+                        }
+                    ],
+                    "/manifest/application/activity": [
+                        {
+                            "xml": "<intent-filter><action android:name=\"com.uniclau.alarmplugin.ALARM\" /><category android:name=\"android.intent.category.DEFAULT\" /></intent-filter>",
+                            "count": 1
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "installed_plugins": {
+        "at.gofg.sportscomputer.powermanagement": {
+            "PACKAGE_NAME": "com.strongene.studyapp"
+        },
+        "boogie-board-sync-sdk-cordova": {
+            "PACKAGE_NAME": "com.strongene.studyapp"
+        },
+        "com-badrit-macaddress": {
+            "PACKAGE_NAME": "com.strongene.studyapp"
+        },
+        "com-xjxxjx1017-activity-manager": {
+            "PACKAGE_NAME": "com.strongene.studyapp"
+        },
+        "com-xjxxjx1017-alarm-manager": {
+            "PACKAGE_NAME": "com.strongene.studyapp"
+        },
+        "com.napolitano.cordova.plugin.intent": {
+            "PACKAGE_NAME": "com.strongene.studyapp"
+        },
+        "org.apache.cordova.file": {
+            "PACKAGE_NAME": "com.strongene.studyapp"
+        },
+        "com.synconset.cordovaHTTP": {
+            "PACKAGE_NAME": "com.strongene.studyapp"
+        },
+        "com.uniclau.alarmplugin": {
+            "PACKAGE_NAME": "com.strongene.studyapp"
+        },
+        "cordova-plugin-applist2": {
+            "PACKAGE_NAME": "com.strongene.studyapp"
+        },
+        "cordova-plugin-blob-constructor-polyfill": {
+            "PACKAGE_NAME": "com.strongene.studyapp"
+        },
+        "cordova-plugin-bluetooth-serial": {
+            "PACKAGE_NAME": "com.strongene.studyapp"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.strongene.studyapp"
+        },
+        "cordova-plugin-dialogs": {
+            "PACKAGE_NAME": "com.strongene.studyapp"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.strongene.studyapp"
+        },
+        "cordova-sqlite-storage": {
+            "PACKAGE_NAME": "com.strongene.studyapp"
+        },
+        "plugin.http.request": {
+            "PACKAGE_NAME": "com.strongene.studyapp"
+        }
+    },
+    "dependent_plugins": {},
+    "modules": [
+        {
+            "file": "plugins/at.gofg.sportscomputer.powermanagement/www/powermanagement.js",
+            "id": "at.gofg.sportscomputer.powermanagement.device",
+            "clobbers": [
+                "window.powerManagement"
+            ]
+        },
+        {
+            "file": "plugins/boogie-board-sync-sdk-cordova/www/syncSdkStreaming.js",
+            "id": "boogie-board-sync-sdk-cordova.syncSdkStreaming",
+            "clobbers": [
+                "window.syncSdkStreaming"
+            ]
+        },
+        {
+            "file": "plugins/boogie-board-sync-sdk-cordova/www/syncSdkFileTransfer.js",
+            "id": "boogie-board-sync-sdk-cordova.syncSdkFileTransfer",
+            "clobbers": [
+                "window.syncSdkFileTransfer"
+            ]
+        },
+        {
+            "file": "plugins/com-badrit-macaddress/www/MacAddress.js",
+            "id": "com-badrit-macaddress.MacAddress",
+            "clobbers": [
+                "window.MacAddress"
+            ]
+        },
+        {
+            "file": "plugins/com-xjxxjx1017-activity-manager/www/ActivityManager.js",
+            "id": "com-xjxxjx1017-activity-manager.ActivityManager",
+            "clobbers": [
+                "window.ActivityManager"
+            ]
+        },
+        {
+            "file": "plugins/com-xjxxjx1017-alarm-manager/www/AlarmManager.js",
+            "id": "com-xjxxjx1017-alarm-manager.AlarmManager",
+            "clobbers": [
+                "window.AlarmManager"
+            ]
+        },
+        {
+            "file": "plugins/com.napolitano.cordova.plugin.intent/www/android/IntentPlugin.js",
+            "id": "com.napolitano.cordova.plugin.intent.IntentPlugin",
+            "clobbers": [
+                "IntentPlugin"
+            ]
+        },
+        {
+            "file": "plugins/org.apache.cordova.file/www/DirectoryEntry.js",
+            "id": "org.apache.cordova.file.DirectoryEntry",
+            "clobbers": [
+                "window.DirectoryEntry"
+            ]
+        },
+        {
+            "file": "plugins/org.apache.cordova.file/www/DirectoryReader.js",
+            "id": "org.apache.cordova.file.DirectoryReader",
+            "clobbers": [
+                "window.DirectoryReader"
+            ]
+        },
+        {
+            "file": "plugins/org.apache.cordova.file/www/Entry.js",
+            "id": "org.apache.cordova.file.Entry",
+            "clobbers": [
+                "window.Entry"
+            ]
+        },
+        {
+            "file": "plugins/org.apache.cordova.file/www/File.js",
+            "id": "org.apache.cordova.file.File",
+            "clobbers": [
+                "window.File"
+            ]
+        },
+        {
+            "file": "plugins/org.apache.cordova.file/www/FileEntry.js",
+            "id": "org.apache.cordova.file.FileEntry",
+            "clobbers": [
+                "window.FileEntry"
+            ]
+        },
+        {
+            "file": "plugins/org.apache.cordova.file/www/FileError.js",
+            "id": "org.apache.cordova.file.FileError",
+            "clobbers": [
+                "window.FileError"
+            ]
+        },
+        {
+            "file": "plugins/org.apache.cordova.file/www/FileReader.js",
+            "id": "org.apache.cordova.file.FileReader",
+            "clobbers": [
+                "window.FileReader"
+            ]
+        },
+        {
+            "file": "plugins/org.apache.cordova.file/www/FileSystem.js",
+            "id": "org.apache.cordova.file.FileSystem",
+            "clobbers": [
+                "window.FileSystem"
+            ]
+        },
+        {
+            "file": "plugins/org.apache.cordova.file/www/FileUploadOptions.js",
+            "id": "org.apache.cordova.file.FileUploadOptions",
+            "clobbers": [
+                "window.FileUploadOptions"
+            ]
+        },
+        {
+            "file": "plugins/org.apache.cordova.file/www/FileUploadResult.js",
+            "id": "org.apache.cordova.file.FileUploadResult",
+            "clobbers": [
+                "window.FileUploadResult"
+            ]
+        },
+        {
+            "file": "plugins/org.apache.cordova.file/www/FileWriter.js",
+            "id": "org.apache.cordova.file.FileWriter",
+            "clobbers": [
+                "window.FileWriter"
+            ]
+        },
+        {
+            "file": "plugins/org.apache.cordova.file/www/Flags.js",
+            "id": "org.apache.cordova.file.Flags",
+            "clobbers": [
+                "window.Flags"
+            ]
+        },
+        {
+            "file": "plugins/org.apache.cordova.file/www/LocalFileSystem.js",
+            "id": "org.apache.cordova.file.LocalFileSystem",
+            "clobbers": [
+                "window.LocalFileSystem"
+            ],
+            "merges": [
+                "window"
+            ]
+        },
+        {
+            "file": "plugins/org.apache.cordova.file/www/Metadata.js",
+            "id": "org.apache.cordova.file.Metadata",
+            "clobbers": [
+                "window.Metadata"
+            ]
+        },
+        {
+            "file": "plugins/org.apache.cordova.file/www/ProgressEvent.js",
+            "id": "org.apache.cordova.file.ProgressEvent",
+            "clobbers": [
+                "window.ProgressEvent"
+            ]
+        },
+        {
+            "file": "plugins/org.apache.cordova.file/www/requestFileSystem.js",
+            "id": "org.apache.cordova.file.requestFileSystem",
+            "clobbers": [
+                "window.requestFileSystem"
+            ]
+        },
+        {
+            "file": "plugins/org.apache.cordova.file/www/resolveLocalFileSystemURI.js",
+            "id": "org.apache.cordova.file.resolveLocalFileSystemURI",
+            "clobbers": [
+                "window.resolveLocalFileSystemURI"
+            ]
+        },
+        {
+            "file": "plugins/com.synconset.cordovaHTTP/www/cordovaHTTP.js",
+            "id": "com.synconset.cordovaHTTP.CordovaHttpPlugin",
+            "clobbers": [
+                "plugins.CordovaHttpPlugin"
+            ]
+        },
+        {
+            "file": "plugins/com.uniclau.alarmplugin/www/alarmplugin.js",
+            "id": "com.uniclau.alarmplugin.AlarmPlugin",
+            "clobbers": [
+                "window.alarm"
+            ]
+        },
+        {
+            "file": "plugins/cordova-plugin-applist2/www/Applist.js",
+            "id": "cordova-plugin-applist2.Applist",
+            "clobbers": [
+                "window.Applist"
+            ]
+        },
+        {
+            "file": "plugins/cordova-plugin-blob-constructor-polyfill/Blob.js",
+            "id": "cordova-plugin-blob-constructor-polyfill.blob-constructor",
+            "merges": [
+                "window"
+            ]
+        },
+        {
+            "file": "plugins/cordova-plugin-bluetooth-serial/www/bluetoothSerial.js",
+            "id": "cordova-plugin-bluetooth-serial.bluetoothSerial",
+            "clobbers": [
+                "window.bluetoothSerial"
+            ]
+        },
+        {
+            "file": "plugins/cordova-plugin-device/www/device.js",
+            "id": "cordova-plugin-device.device",
+            "clobbers": [
+                "device"
+            ]
+        },
+        {
+            "file": "plugins/cordova-plugin-dialogs/www/notification.js",
+            "id": "cordova-plugin-dialogs.notification",
+            "merges": [
+                "navigator.notification"
+            ]
+        },
+        {
+            "file": "plugins/cordova-plugin-dialogs/www/android/notification.js",
+            "id": "cordova-plugin-dialogs.notification_android",
+            "merges": [
+                "navigator.notification"
+            ]
+        },
+        {
+            "file": "plugins/cordova-plugin-whitelist/whitelist.js",
+            "id": "cordova-plugin-whitelist.whitelist",
+            "runs": true
+        },
+        {
+            "file": "plugins/cordova-sqlite-storage/www/SQLitePlugin.js",
+            "id": "cordova-sqlite-storage.SQLitePlugin",
+            "clobbers": [
+                "SQLitePlugin"
+            ]
+        },
+        {
+            "file": "plugins/plugin.http.request/www/http-request.js",
+            "id": "plugin.http.request.phonegap-http-requst",
+            "clobbers": [
+                "cordova.plugins.http-request"
+            ]
+        }
+    ],
+    "plugin_metadata": {
+        "at.gofg.sportscomputer.powermanagement": "1.1.2",
+        "boogie-board-sync-sdk-cordova": "0.4.6",
+        "com-badrit-macaddress": "0.2.0",
+        "com-xjxxjx1017-activity-manager": "0.2.0",
+        "com-xjxxjx1017-alarm-manager": "0.2.0",
+        "com.napolitano.cordova.plugin.intent": "0.1.3",
+        "org.apache.cordova.file": "0.2.5",
+        "com.synconset.cordovaHTTP": "0.1.4",
+        "com.uniclau.alarmplugin": "0.1.0",
+        "cordova-plugin-applist2": "0.1.4",
+        "cordova-plugin-blob-constructor-polyfill": "1.0.3-dev",
+        "cordova-plugin-bluetooth-serial": "0.4.5",
+        "cordova-plugin-device": "1.1.1",
+        "cordova-plugin-dialogs": "1.2.0",
+        "cordova-plugin-whitelist": "1.2.0",
+        "cordova-sqlite-storage": "0.7.14",
+        "plugin.http.request": "1.0.4"
+    }
+}

@@ -1,0 +1,24 @@
+<div ng-controller="tuichudengluzhanghaoController as main">
+
+    <div class="alert-dialog-mask"></div>
+
+    <div class="alert-dialog">
+        <div class="alert-dialog-title">退出登录帐号</div>
+
+        <div class="alert-dialog-content">
+            退出登录将会删除您本地的所有缓存数据
+        </div>
+
+        <div class="alert-dialog-footer alert-dialog-footer--one">
+
+            <button modifier="quiet" class="alert-dialog-button alert-dialog-button--one"
+                    ng-click="main.confirm()">确认
+            </button>
+
+            <button class="alert-dialog-button alert-dialog-button--one" onClick="myNavigator.popPage()">取消
+            </button>
+
+        </div>
+    </div>
+
+</div>

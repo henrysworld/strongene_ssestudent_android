@@ -1,0 +1,21 @@
+
+<link rel="stylesheet" href="page/yueducuotipage/yueducuoti.css"/>
+
+<ons-page>
+    <div class="" ng-controller="yueducuotiController as main">
+        <ons-toolbar>
+            <div class="left">
+                <ons-button modifier="material" ng-click="main.backClicked()">我读完了</ons-button>
+            </div>
+            <div class="center" style="font-weight: bold;">阅读错题批改</div>
+        </ons-toolbar>
+
+        <ons-list>
+            <ons-list-header>未阅读的错题提交</ons-list-header>
+            <ons-list-item ng-repeat="timu in main.timus" ngc-done="'scope.render'">
+                {{$index+1}}.&nbsp{{timu.tixingName}}:
+                <span class="yueducuotiLatexRender" ng-bind-html="timu.tigantxt | to_trusted"></span>
+            </ons-list-item>
+        </ons-list>
+    </div>
+</ons-page>

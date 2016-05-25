@@ -1,0 +1,41 @@
+<ons-page ng-controller="sampleController as main">
+    <style>
+        #canvas {
+            background-color: green;
+            margin-top: 10px;
+        }
+    </style>
+    <ons-row>
+        <ons-col>
+            <div>
+                Streaming:
+                <button modifier="material" ng-click="main.start()">START</button>
+                <button modifier="material" ng-click="main.end()">END</button>
+            </div>
+            <div>
+                <div style="font-size:15px">Status Streaming:</div>
+                <div style="font-size:15px">    {{main.manager.stateString}}</div>
+                <div style="font-size:15px">Status FileTrans:</div>
+                <div style="font-size:15px">    {{main.stateString2}}</div>
+            </div>
+            <div>
+                <ons-list-header>
+                    Current Uri: {{main.currentUri}}
+                </ons-list-header>
+                <ons-list ng-repeat="file in main.fileList2 track by $index">
+                    <ons-list-item>
+                        {{file.name }} | {{file.size }}
+                    </ons-list-item>
+                </ons-list>
+            </div>
+        </ons-col>
+        <ons-col>
+            <div>
+                data: {{main.filedata}}
+            </div>
+            <canvas id="sample-canvas" height="574" width="395"></canvas>
+        </ons-col>
+    </ons-row>
+    <!--div>
+    </div-->
+</ons-page>

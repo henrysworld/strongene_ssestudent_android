@@ -1,0 +1,52 @@
+
+<!-- This is a innerHTML file. Don't add javascript here-->
+<!--
+###1.2 我的提醒页面（主页面）
+- 主窗口：消息提醒
+    - 新布置的作业（若存在）
+    - 新的作业批改（若存在）
+    - 新的错题批改（若存在）
+    - 老师的新评语（若存在）
+- 子窗口/边栏：欢迎信息
+    - [ ] 对学生的欢迎信息
+    - [ ] 显示学校的相关信息
+    - [ ] 时间日期、星期等信息
+    - [ ] 备忘录等功能（若可支持）
+    -->
+
+
+<!-- Add a css page here will cause a blank screen -->
+
+<ons-toolbar>
+    <div class="center" style="font-weight: bold;">消息提醒</div>
+</ons-toolbar>
+
+<!-- Controller cannot be at the same line as the ng- commands -->
+<div ng-controller="wodetixingController as main" >
+
+    <div class="center">
+        你好，{{main.user.name}}
+        <br>
+        {{main.time | date: 'yyyy年M月dd日'}}
+    </div>
+
+    <ons-list class="plan-list" ng-if="main.xinzuoyeCount!=0">
+        <ons-list-header>
+            新布置的作业({{main.xinzuoyeCount}})
+        </ons-list-header>
+        <ons-list-item modifier="chevron" class="plan" ng-repeat="i in main.qingdans"
+                       ng-click="main.onItemClick($index)" ng-show="i.flag==NEW_WORK">
+            <div class="plan-duration">{{i.kechengname}} {{i.fabutime | date: 'yyyy年M月dd日HH:mm:ss'}}发布</div>
+        </ons-list-item>
+    </ons-list>
+
+    <ons-list class="plan-list" ng-if="main.daiyuedupigaiCount!=0">
+        <ons-list-header>
+            未阅读的批改({{main.daiyuedupigaiCount}})
+        </ons-list-header>
+        <ons-list-item modifier="chevron" class="plan" ng-repeat="i in main.qingdans"
+                       ng-click="main.onItemClick($index)" ng-show="i.flag==NOT_READ_JUDGED_WORK">
+            <div class="plan-duration">{{i.kechengname}} {{i.fabutime | date: 'yyyy年M月dd日HH:mm:ss'}}发布作业已批改</div>
+        </ons-list-item>
+    </ons-list>
+</div>

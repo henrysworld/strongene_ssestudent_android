@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.strongene.studyapp" version="1.0" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <preference name="loglevel" value="DEBUG" />
+    <feature name="StrongenePlugin">
+        <param name="android-package" value="com.strongene.plugins.StrongenePlugin" />
+    </feature>
+    <feature name="PowerManagement">
+        <param name="android-package" value="org.apache.cordova.powermanagement.PowerManagement" />
+    </feature>
+    <feature name="SyncSdkStreaming">
+        <param name="android-package" value="com.megster.cordova.SyncSdkStreaming" />
+    </feature>
+    <feature name="SyncSdkFileTransfer">
+        <param name="android-package" value="com.megster.cordova.SyncSdkFileTransfer" />
+    </feature>
+    <feature name="MacAddressPlugin">
+        <param name="android-package" value="com.badrit.MacAddress.MacAddressPlugin" />
+    </feature>
+    <feature name="ActivityManagerPlugin">
+        <param name="android-package" value="com.xjxxjx1017.ActivityManager.ActivityManagerPlugin" />
+    </feature>
+    <feature name="AlarmManagerPlugin">
+        <param name="android-package" value="com.xjxxjx1017.AlarmManager.AlarmManagerPlugin" />
+    </feature>
+    <feature name="IntentPlugin">
+        <param name="android-package" value="com.napolitano.cordova.plugin.intent.IntentPlugin" />
+    </feature>
+    <feature name="File">
+        <param name="android-package" value="org.apache.cordova.file.FileUtils" />
+    </feature>
+    <feature name="CordovaHttpPlugin">
+        <param name="android-package" value="com.synconset.CordovaHttpPlugin" />
+    </feature>
+    <feature name="AlarmPlugin">
+        <param name="android-package" value="com.uniclau.alarmplugin.AlarmPlugin" />
+    </feature>
+    <feature name="Applist">
+        <param name="android-package" value="org.jmrezayi2.Applist.Applist"/>
+    </feature>
+    <feature name="BluetoothSerial">
+        <param name="android-package" value="com.megster.cordova.BluetoothSerial" />
+    </feature>
+    <feature name="Device">
+        <param name="android-package" value="org.apache.cordova.device.Device" />
+    </feature>
+    <feature name="Notification">
+        <param name="android-package" value="org.apache.cordova.dialogs.Notification" />
+    </feature>
+    <feature name="Whitelist">
+        <param name="android-package" value="org.apache.cordova.whitelist.WhitelistPlugin" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="SQLitePlugin">
+        <param name="android-package" value="io.liteglue.SQLitePlugin" />
+    </feature>
+    <feature name="HttpRequest">
+        <param name="android-package" value="plugin.http.request.HttpRequest" />
+    </feature>
+    <icon density="ldpi" src="www/img/logo.png" />
+    <icon density="mdpi" src="www/img/logo.png" />
+    <icon density="hdpi" src="www/img/logo.png" />
+    <icon density="xhdpi" src="www/img/logo.png" />
+    <allow-intent href="market:*" />
+    <preference name="AndroidPersistentFileLocation" value="Compatibility" />
+    <preference name="android-minSdkVersion" value="14" />
+    <preference name="AndroidLaunchMode" value="singleTask" />
+    <preference name="Fullscreen" value="false" />
+    <preference name="Orientation" value="portrait" />
+    <preference name="android-largeHeap" value="true" />
+    <config-file parent="application/activity" target="AndroidManifest.xml">
+        <intent-filter>
+            <action android:name="android.intent.action.SEND" />
+            <action android:name="android.intent.action.SEND_MULTIPLE" />
+            <category android:name="android.intent.category.DEFAULT" />
+            <data android:mimeType="*/*" />
+        </intent-filter>
+    </config-file>
+    <name>StudyApp</name>
+    <description>
+        A studay app
+    </description>
+    <author email="dev@cordova.apache.org" href="http://cordova.io">
+        xjxxjx1017
+    </author>
+    <content src="scripts/index.html" />
+    <access origin="*" />
+    <allow-navigation href="*" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
+</widget>
